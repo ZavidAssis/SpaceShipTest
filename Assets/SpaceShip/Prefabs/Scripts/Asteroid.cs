@@ -31,6 +31,7 @@ public class Asteroid : MonoBehaviour
     }
     public void Die()
     {
+        SoundManager.Instance.PlaySound(SoundType.Explosion);
         if (myLevel == 0)
             return;
         for(int i = 0; i < spawnNumber; i++)

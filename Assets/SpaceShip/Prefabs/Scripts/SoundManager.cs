@@ -2,17 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SoundType
+{
+    Shoot,
+    Explosion,
+    Lose
+}
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static SoundManager Instance;
+
+    [Header("Sound Lists")]
+    [SerializeField]
+    private AudioClip[] shootSounds;
+    [SerializeField]
+    private AudioClip[] explosionSounds;
+    [SerializeField]
+    private AudioClip[] loseSounds;
+
+
+    //aux vars
+    private AudioSource aud;
+    private void singletonCreation()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+    }
+    private void Awake()
+    {
+        singletonCreation();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void getRefs()
     {
-        
+        aud = GetComponent<AudioSource>();
+    }
+    private void Start()
+    {
+        getRefs();
+    }
+    public void PlaySound(SoundType type)
+    {
+        switch (type)
+        {
+            case SoundType.Shoot:
+                aud.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)]);
+                break;
+            case SoundType.Explosion:
+                aud.PlayOneShot(explosionSounds[Random.Range(0, explosionSounds.Length)]);
+                break;
+            case SoundType.Lose:
+                aud.PlayOneShot(loseSounds[Random.Range(0, loseSounds.Length)]);
+                break;
+        }
     }
 }

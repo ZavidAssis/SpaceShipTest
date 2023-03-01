@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
     //metodo para atirar
     private void fire()
     {
+        SoundManager.Instance.PlaySound(SoundType.Shoot);
+    }
 
+    public void Die()
+    {
+        SoundManager.Instance.PlaySound(SoundType.Lose);
     }
 }

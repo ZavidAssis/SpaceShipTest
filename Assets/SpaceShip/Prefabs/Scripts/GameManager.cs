@@ -51,10 +51,13 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator revivePlayer()
     {
-        yield return new WaitForSeconds(1);
-        ResourcesManager.Instance.PlayerLastPos.position = RandomPositionGenerator.Instance.RandomPos();
-        ResourcesManager.Instance.PlayerLastPos.rotation = Quaternion.identity;
-        ResourcesManager.Instance.PlayerLastPos.gameObject.SetActive(true);
+        if (!loseUI.activeInHierarchy)
+        {
+            yield return new WaitForSeconds(1);
+            ResourcesManager.Instance.PlayerLastPos.position = RandomPositionGenerator.Instance.RandomPos();
+            ResourcesManager.Instance.PlayerLastPos.rotation = Quaternion.identity;
+            ResourcesManager.Instance.PlayerLastPos.gameObject.SetActive(true);
+        }
     }
     private void gameStop()
     {

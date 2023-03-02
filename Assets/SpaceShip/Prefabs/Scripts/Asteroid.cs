@@ -31,6 +31,7 @@ public class Asteroid : MonoBehaviour
     void getRefs()
     {
         rb = GetComponent<Rigidbody2D>();
+        mySpeed = Random.Range(mySpeed * .7f, mySpeed * 1.3f);
     }
     private void FixedUpdate()
     {

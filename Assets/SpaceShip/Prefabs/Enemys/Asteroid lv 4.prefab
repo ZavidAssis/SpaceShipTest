@@ -100,8 +100,8 @@ MonoBehaviour:
   myLevel: 3
   mySpeed: 1
   spawnNumber: 2
-  goldToGive: 2
-  pointsToGive: 2
+  goldToGive: 4
+  pointsToGive: 4
 --- !u!50 &2193129760451943859
 Rigidbody2D:
   serializedVersion: 4

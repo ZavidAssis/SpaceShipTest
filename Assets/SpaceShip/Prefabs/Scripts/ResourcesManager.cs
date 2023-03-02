@@ -86,6 +86,7 @@ public class ResourcesManager : MonoBehaviour
         if (playerMoney >= lifePrice)
         {
             playerMoney -= lifePrice;
+            lifePrice = (int)(lifePrice*1.2f);
             GameManager.Instance.livesCount++;
             attUI();
         }

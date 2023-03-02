@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum SoundType
 {
+    Start,
     Shoot,
     Explosion,
     Lose
@@ -13,6 +14,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     [Header("Sound Lists")]
+    [SerializeField]
+    private AudioClip[] startSounds;
     [SerializeField]
     private AudioClip[] shootSounds;
     [SerializeField]
@@ -52,6 +55,9 @@ public class SoundManager : MonoBehaviour
     {
         switch (type)
         {
+            case SoundType.Start:
+                aud.PlayOneShot(startSounds[Random.Range(0, startSounds.Length)]);
+                break;
             case SoundType.Shoot:
                 aud.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)]);
                 break;

@@ -8,21 +8,29 @@ public class EnemyShip : MonoBehaviour
     [SerializeField]
     private float mySpeed;
     [SerializeField]
-    private int goldToGive, xpToGive;
+    private int goldToGive, pointsToGive;
 
-
+    [Header("Weapon")]
+    [SerializeField]
+    private GameObject myBullet;
+    [SerializeField]
+    private Transform[] firePoints;
+    [SerializeField]
+    private float fireRate;
     //aux vars
     private Rigidbody2D rb;
     private Vector2 pointToGo;
 
-
+    private bool gameOn;
     private void Start()
     {
         getRefs();
+        StartCoroutine(fire());
     }
     void getRefs()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameOn = true;
     }
     private void FixedUpdate()
     {
@@ -47,12 +55,21 @@ public class EnemyShip : MonoBehaviour
         Quaternion toRotate = Quaternion.LookRotation(Vector3.forward, direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, toRotate, 10 * Time.deltaTime);
     }
-    private void fire()
+    private IEnumerator fire()
     {
-        SoundManager.Instance.PlaySound(SoundType.Shoot);
+        while (gameOn)
+        {
+            yield return new WaitForSeconds(fireRate);
+            SoundManager.Instance.PlaySound(SoundType.Shoot);
+            foreach (Transform pos in firePoints)
+                Instantiate(myBullet, pos.position, pos.rotation);
+        }
     }
     public void Die()
     {
         SoundManager.Instance.PlaySound(SoundType.Explosion);
+        ResourcesManager.Instance.AddPoints(pointsToGive, goldToGive);
+        Instantiate(GameManager.Instance.ExplosionSprite, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

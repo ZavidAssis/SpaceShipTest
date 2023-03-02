@@ -51,5 +51,13 @@ public class Player : MonoBehaviour
     public void Die()
     {
         SoundManager.Instance.PlaySound(SoundType.Lose);
+        GameManager.Instance.PlayerDead();
+        this.gameObject.SetActive(false);
+    }
+
+
+    private void OnDisable()
+    {
+        ResourcesManager.Instance.PlayerLastPos = this.transform;
     }
 }

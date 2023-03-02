@@ -12,7 +12,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField]
     private int spawnNumber;
     [SerializeField]
-    private int goldToGive, xpToGive;
+    private int goldToGive, pointsToGive;
 
 
     //aux vars
@@ -32,12 +32,21 @@ public class Asteroid : MonoBehaviour
     public void Die()
     {
         SoundManager.Instance.PlaySound(SoundType.Explosion);
+        ResourcesManager.Instance.AddPoints(pointsToGive, goldToGive);
         if (myLevel == 0)
-            return;
-        for(int i = 0; i < spawnNumber; i++)
         {
-            //Instantiate(botar depois, transform.position, transform.rotation);
+            Instantiate(GameManager.Instance.ExplosionSprite, transform.position, transform.rotation);
         }
+        else
+        {
+            for (int i = 0; i < spawnNumber; i++)
+            {
+                int rngRot = Random.Range(0, 4);
+                Quaternion rot = Quaternion.Euler(0, 0, rngRot * 90);
+                Instantiate(GameManager.Instance.AsteroidLvs[myLevel - 1], transform.position, rot);
+            }
+        }
+        Destroy(gameObject);
 
     }
 }

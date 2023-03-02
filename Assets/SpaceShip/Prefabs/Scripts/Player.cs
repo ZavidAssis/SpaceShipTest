@@ -27,6 +27,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         getRefs();
+
+    }
+    private IEnumerator invencibleTime()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(1);
+        GetComponent<Collider2D>().enabled = true;
     }
     private void getRefs()
     {
@@ -41,7 +48,7 @@ public class Player : MonoBehaviour
 
         if (cdShoot > 0)
             cdShoot -= Time.fixedDeltaTime;
-        else if (Input.GetAxisRaw("Jump") == 1)
+        else if (Input.GetAxisRaw("Fire1") == 1)
         {
             fire();
             cdShoot = fireRate;

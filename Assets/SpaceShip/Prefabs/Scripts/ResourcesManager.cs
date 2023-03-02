@@ -12,6 +12,10 @@ public class ResourcesManager : MonoBehaviour
     private TextMeshProUGUI moneyCounter;
     [SerializeField]
     private TextMeshProUGUI pointsCounter;
+    [SerializeField]
+    private TextMeshProUGUI shipPrice;
+    [SerializeField]
+    private TextMeshProUGUI livesUI;
 
 
     [Header("Shop Things")]
@@ -19,10 +23,12 @@ public class ResourcesManager : MonoBehaviour
     private GameObject[] playerShips;
     [SerializeField]
     private int[] shipCosts;
+    [SerializeField]
+    private int lifePrice;
 
 
     //aux vars
-    //[HideInInspector]
+    [HideInInspector]
     public Transform PlayerLastPos;
     [HideInInspector]
     public int PlayerPoints;
@@ -45,10 +51,17 @@ public class ResourcesManager : MonoBehaviour
     {
         singletonCreation();
     }
+    private void Start()
+    {
+        attUI();
+    }
     private void attUI()
     {
-        //moneyCounter.text = playerMoney.ToString();
-        //pointsCounter.text = PlayerPoints.ToString();
+        moneyCounter.text = "$" + playerMoney.ToString();
+        pointsCounter.text = "Points: " + PlayerPoints.ToString();
+        shipPrice.text = "Buy Plane " +
+            "$"+shipCosts[currentPlane].ToString();
+        livesUI.text ="Lifes: "+ GameManager.Instance.livesCount.ToString();
     }
 
     public void AddPoints(int points, int money)
@@ -70,9 +83,10 @@ public class ResourcesManager : MonoBehaviour
     }
     public void BuyLife()
     {
-        if (playerMoney >= shipCosts[currentPlane])
+        if (playerMoney >= lifePrice)
         {
-            playerMoney -= shipCosts[currentPlane];
+            playerMoney -= lifePrice;
+            GameManager.Instance.livesCount++;
             attUI();
         }
     }

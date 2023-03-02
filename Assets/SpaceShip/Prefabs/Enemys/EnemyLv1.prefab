@@ -98,12 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySpeed: 1
-  goldToGive: 10
-  pointsToGive: 10
+  goldToGive: 5
+  pointsToGive: 5
   myBullet: {fileID: 1254432399651252512, guid: 7b6544fdef518d640a8d6f41de411acb, type: 3}
   firePoints:
   - {fileID: 2602504873061737372}
-  fireRate: 3
+  fireRate: 1.5
 --- !u!58 &8957621435826636084
 CircleCollider2D:
   m_ObjectHideFlags: 0

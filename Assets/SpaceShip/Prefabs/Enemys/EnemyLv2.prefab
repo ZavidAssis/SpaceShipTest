@@ -47,13 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySpeed: 2
-  goldToGive: 20
-  pointsToGive: 20
+  goldToGive: 10
+  pointsToGive: 10
   myBullet: {fileID: 4775136622426654038, guid: 9973ca6a20ef0c84f881e2f3f3fbf4b1, type: 3}
   firePoints:
   - {fileID: 2194182899067883719}
   - {fileID: 2194182898802407582}
-  fireRate: 1.5
+  fireRate: 1.3
 --- !u!50 &2194182898477497704
 Rigidbody2D:
   serializedVersion: 4

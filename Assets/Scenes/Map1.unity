@@ -814,7 +814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemysToGen:
   - {fileID: 2194182898477497709, guid: 2af56a690f390af43ad0ca2e662d096c, type: 3}
-  - {fileID: 2602504873222354993, guid: 35ed117da55d91646b4abeff40923fbf, type: 3}
   - {fileID: 7385075020180953645, guid: c2702db091404ca45995249d64ba47b4, type: 3}
   amountToGen: 2
   timerToStart: 110
@@ -1587,8 +1586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemysToGen:
   - {fileID: 349432885173844409, guid: bba25923bebfd6f43b05f7b0191dd73e, type: 3}
-  - {fileID: 2193129760451943862, guid: 92a41eeb70cabab4cb1e6693c0ff5fca, type: 3}
   - {fileID: 2602504873222354993, guid: 35ed117da55d91646b4abeff40923fbf, type: 3}
+  - {fileID: 2194182898477497709, guid: 2af56a690f390af43ad0ca2e662d096c, type: 3}
   amountToGen: 3
   timerToStart: 60
   timerToEachGen: 28
@@ -5126,11 +5125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemysToGen:
-  - {fileID: 8472742519846194408, guid: 8229de55e45a41e4f9dd38d5f1827988, type: 3}
+  - {fileID: 2602504873222354993, guid: 35ed117da55d91646b4abeff40923fbf, type: 3}
   - {fileID: 349432885173844409, guid: bba25923bebfd6f43b05f7b0191dd73e, type: 3}
-  - {fileID: 2193129760451943862, guid: 92a41eeb70cabab4cb1e6693c0ff5fca, type: 3}
   amountToGen: 3
-  timerToStart: 30
+  timerToStart: 25
   timerToEachGen: 16
 --- !u!1 &1726663562
 GameObject:
@@ -5445,10 +5443,10 @@ MonoBehaviour:
   enemysToGen:
   - {fileID: 872246356569870126, guid: cb93bf9ab0dfae747b6dd3e599d2dff1, type: 3}
   - {fileID: 8472742519846194408, guid: 8229de55e45a41e4f9dd38d5f1827988, type: 3}
-  - {fileID: 349432885173844409, guid: bba25923bebfd6f43b05f7b0191dd73e, type: 3}
+  - {fileID: 2193129760451943862, guid: 92a41eeb70cabab4cb1e6693c0ff5fca, type: 3}
   amountToGen: 3
   timerToStart: 0
-  timerToEachGen: 7
+  timerToEachGen: 8
 --- !u!1 &2007513268
 GameObject:
   m_ObjectHideFlags: 0

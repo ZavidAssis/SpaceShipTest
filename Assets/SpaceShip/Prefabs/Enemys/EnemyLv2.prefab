@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2194182898477497707}
   - component: {fileID: 2194182898477497706}
   - component: {fileID: 2194182898477497704}
+  - component: {fileID: 5099300515984180503}
   m_Layer: 7
   m_Name: EnemyLv2
   m_TagString: Enemy
@@ -74,6 +75,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &5099300515984180503
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2194182898477497709}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.38
 --- !u!1 &2194182898698078870
 GameObject:
   m_ObjectHideFlags: 0

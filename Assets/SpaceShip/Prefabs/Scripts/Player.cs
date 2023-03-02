@@ -12,9 +12,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float friction;
 
+    [Header("Weapon")]
+    [SerializeField]
+    private GameObject myBullet;
+    [SerializeField]
+    private Transform[] firePoints;
+    [SerializeField]
+    private float fireRate;
+
 
     //aux vars
     private Rigidbody2D rb;
+    private float cdShoot;
     void Start()
     {
         getRefs();
@@ -28,6 +37,15 @@ public class Player : MonoBehaviour
     {
         rotate(Input.GetAxis("Horizontal"));
         boost(Input.GetAxis("Vertical"));
+
+
+        if (cdShoot > 0)
+            cdShoot -= Time.fixedDeltaTime;
+        else if (Input.GetAxisRaw("Jump") == 1)
+        {
+            fire();
+            cdShoot = fireRate;
+        }
     }
 
     //rotaciona o player
@@ -46,6 +64,8 @@ public class Player : MonoBehaviour
     private void fire()
     {
         SoundManager.Instance.PlaySound(SoundType.Shoot);
+        foreach (Transform pos in firePoints)
+            Instantiate(myBullet, pos.position, pos.rotation);
     }
 
     public void Die()

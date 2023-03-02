@@ -47,8 +47,8 @@ public class ResourcesManager : MonoBehaviour
     }
     private void attUI()
     {
-        moneyCounter.text = playerMoney.ToString();
-        pointsCounter.text = PlayerPoints.ToString();
+        //moneyCounter.text = playerMoney.ToString();
+        //pointsCounter.text = PlayerPoints.ToString();
     }
 
     public void AddPoints(int points, int money)

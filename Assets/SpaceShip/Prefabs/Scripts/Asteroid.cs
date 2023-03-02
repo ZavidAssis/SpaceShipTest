@@ -20,6 +20,13 @@ public class Asteroid : MonoBehaviour
     private void Start()
     {
         getRefs();
+        randomizeRot();
+    }
+    private void randomizeRot()
+    {
+        int rngRot = Random.Range(0, 4);
+        Quaternion rot = Quaternion.Euler(0, 0, rngRot * 90);
+        transform.rotation = rot;
     }
     void getRefs()
     {
@@ -27,7 +34,7 @@ public class Asteroid : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.velocity = transform.forward * mySpeed;
+        rb.velocity = transform.right * mySpeed;
     }
     public void Die()
     {
@@ -43,10 +50,18 @@ public class Asteroid : MonoBehaviour
             {
                 int rngRot = Random.Range(0, 4);
                 Quaternion rot = Quaternion.Euler(0, 0, rngRot * 90);
-                Instantiate(GameManager.Instance.AsteroidLvs[myLevel - 1], transform.position, rot);
+                Instantiate(GameManager.Instance.AsteroidLvs[myLevel - 1], transform.position, transform.rotation);
             }
         }
         Destroy(gameObject);
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Player>(out Player player))
+        {
+            player.Die();
+            Die();
+        }
     }
 }

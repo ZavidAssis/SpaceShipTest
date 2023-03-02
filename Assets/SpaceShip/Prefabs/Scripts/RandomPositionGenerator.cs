@@ -27,6 +27,9 @@ public class RandomPositionGenerator : MonoBehaviour
     public Vector2 RandomPos()
     {
         Vector2 pos = new Vector3(Random.Range(-fieldSize.x / 2, fieldSize.x / 2), Random.Range(-fieldSize.y / 2, fieldSize.y / 2));
+        while (Physics2D.OverlapCircle(pos, 5, 6))
+            pos = new Vector3(Random.Range(-fieldSize.x / 2, fieldSize.x / 2), Random.Range(-fieldSize.y / 2, fieldSize.y / 2));
+
         return pos;
     }
     private void OnDrawGizmos()

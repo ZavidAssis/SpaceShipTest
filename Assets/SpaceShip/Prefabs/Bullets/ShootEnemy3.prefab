@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6534879269576180638}
   - component: {fileID: 6534879269576180639}
   - component: {fileID: 758732425175402471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootEnemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,8 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf7b39ac931dfb4db8ff88f59b92d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9
-  timeToDestroy: 2
+  myEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  speed: 7
+  timeToDestroy: 4
 --- !u!50 &6534879269576180639
 Rigidbody2D:
   serializedVersion: 4

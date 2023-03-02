@@ -72,4 +72,13 @@ public class EnemyShip : MonoBehaviour
         Instantiate(GameManager.Instance.ExplosionSprite, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Player>(out Player player))
+        {
+            player.Die();
+            Die();
+        }
+    }
 }

@@ -21,6 +21,7 @@ public class EnemyGen : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.OnGameStop.AddListener(stop);
+        isFunctional = true;
         StartCoroutine(generateEver());
     }
 

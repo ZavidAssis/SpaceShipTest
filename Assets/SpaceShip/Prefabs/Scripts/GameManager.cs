@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField]
-    private GameObject loseUI,bestScoreUI;
+    private GameObject loseUI, bestScoreUI;
     [SerializeField]
     private TextMeshProUGUI bestScore, currentScore;
 
@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour
     private void gameStop()
     {
         OnGameStop.Invoke();
-        bestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
-        currentScore.text = ResourcesManager.Instance.PlayerPoints.ToString();
+        bestScore.text = "Best Score: " + PlayerPrefs.GetInt("BestScore").ToString();
+        currentScore.text = "Points: " + ResourcesManager.Instance.PlayerPoints.ToString();
 
         if (ResourcesManager.Instance.PlayerPoints > PlayerPrefs.GetInt("BestScore"))
         {

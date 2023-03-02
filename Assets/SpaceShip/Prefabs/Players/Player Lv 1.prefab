@@ -213,12 +213,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 60
-  boostSpeed: 3
+  boostSpeed: 4
   friction: 40
   myBullet: {fileID: 7799248441121164276, guid: de4b873e74dce504a8356bf72d14b831, type: 3}
   firePoints:
   - {fileID: 4588484922854212948}
-  fireRate: 1
+  fireRate: 0.8
 --- !u!50 &4588484922789177977
 Rigidbody2D:
   serializedVersion: 4

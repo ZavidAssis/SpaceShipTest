@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myLevel: 1
-  mySpeed: 2
+  mySpeed: 1.8
   spawnNumber: 2
   goldToGive: 4
   pointsToGive: 4

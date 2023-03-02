@@ -414,8 +414,8 @@ MonoBehaviour:
   - {fileID: 1514371930}
   - {fileID: 263615278}
   - {fileID: 414972534}
-  shipCosts: 640000002c010000f4010000e8030000
-  lifePrice: 500
+  shipCosts: 1e000000640000002c010000f4010000
+  lifePrice: 50
   PlayerLastPos: {fileID: 0}
   PlayerPoints: 0
 --- !u!1 &67883045
@@ -682,7 +682,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Buy Life
 
-    $500'
+    $50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -818,7 +818,7 @@ MonoBehaviour:
   - {fileID: 7385075020180953645, guid: c2702db091404ca45995249d64ba47b4, type: 3}
   amountToGen: 2
   timerToStart: 110
-  timerToEachGen: 50
+  timerToEachGen: 10
 --- !u!1 &376188529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1589,7 @@ MonoBehaviour:
   - {fileID: 349432885173844409, guid: bba25923bebfd6f43b05f7b0191dd73e, type: 3}
   - {fileID: 2193129760451943862, guid: 92a41eeb70cabab4cb1e6693c0ff5fca, type: 3}
   - {fileID: 2602504873222354993, guid: 35ed117da55d91646b4abeff40923fbf, type: 3}
-  amountToGen: 4
+  amountToGen: 3
   timerToStart: 60
   timerToEachGen: 28
 --- !u!1 &776444225
@@ -1863,7 +1863,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: b934a610
   m_LightCookieSprite: {fileID: 0}
@@ -4509,6 +4509,7 @@ GameObject:
   - component: {fileID: 1249447605}
   - component: {fileID: 1249447604}
   - component: {fileID: 1249447603}
+  - component: {fileID: 1249447606}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4581,6 +4582,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1249447606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249447602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1354266436
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,7 +5131,7 @@ MonoBehaviour:
   - {fileID: 2193129760451943862, guid: 92a41eeb70cabab4cb1e6693c0ff5fca, type: 3}
   amountToGen: 3
   timerToStart: 30
-  timerToEachGen: 14
+  timerToEachGen: 16
 --- !u!1 &1726663562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,7 +5446,7 @@ MonoBehaviour:
   - {fileID: 872246356569870126, guid: cb93bf9ab0dfae747b6dd3e599d2dff1, type: 3}
   - {fileID: 8472742519846194408, guid: 8229de55e45a41e4f9dd38d5f1827988, type: 3}
   - {fileID: 349432885173844409, guid: bba25923bebfd6f43b05f7b0191dd73e, type: 3}
-  amountToGen: 5
+  amountToGen: 3
   timerToStart: 0
   timerToEachGen: 7
 --- !u!1 &2007513268

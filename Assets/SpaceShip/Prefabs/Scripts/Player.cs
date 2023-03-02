@@ -27,13 +27,19 @@ public class Player : MonoBehaviour
     void Start()
     {
         getRefs();
-
+    }
+    private void OnEnable()
+    {
+        StartCoroutine(invencibleTime());
     }
     private IEnumerator invencibleTime()
     {
         GetComponent<Collider2D>().enabled = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.2f);
+        SoundManager.Instance.PlaySound(SoundType.Start);
+        yield return new WaitForSeconds(1f);
         GetComponent<Collider2D>().enabled = true;
+
     }
     private void getRefs()
     {
@@ -48,7 +54,7 @@ public class Player : MonoBehaviour
 
         if (cdShoot > 0)
             cdShoot -= Time.fixedDeltaTime;
-        else if (Input.GetAxisRaw("Fire1") == 1)
+        else if (Input.GetAxisRaw("Jump") == 1)
         {
             fire();
             cdShoot = fireRate;
@@ -64,7 +70,10 @@ public class Player : MonoBehaviour
     //acelera para frente
     private void boost(float axis)
     {
-        rb.AddForce(transform.right * boostSpeed * axis, ForceMode2D.Force);
+        if (axis > 0)
+            rb.AddForce(transform.right * boostSpeed * (axis), ForceMode2D.Force);
+        else
+            rb.AddForce(transform.right * (boostSpeed*.35f) * (axis), ForceMode2D.Force);
         rb.AddForce((-new Vector3(rb.velocity.x, rb.velocity.y) * friction) * Time.fixedDeltaTime);
     }
     //metodo para atirar
@@ -79,6 +88,7 @@ public class Player : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(SoundType.Lose);
         GameManager.Instance.PlayerDead();
+        Instantiate(GameManager.Instance.ExplosionSprite, transform.position, transform.rotation);
         this.gameObject.SetActive(false);
     }
 

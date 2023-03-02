@@ -56,16 +56,16 @@ public class SoundManager : MonoBehaviour
         switch (type)
         {
             case SoundType.Start:
-                aud.PlayOneShot(startSounds[Random.Range(0, startSounds.Length)]);
+                aud.PlayOneShot(startSounds[Random.Range(0, startSounds.Length)],.4f);
                 break;
             case SoundType.Shoot:
-                aud.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)]);
+                aud.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)],.3f);
                 break;
             case SoundType.Explosion:
-                aud.PlayOneShot(explosionSounds[Random.Range(0, explosionSounds.Length)]);
+                aud.PlayOneShot(explosionSounds[Random.Range(0, explosionSounds.Length)], .4f);
                 break;
             case SoundType.Lose:
-                aud.PlayOneShot(loseSounds[Random.Range(0, loseSounds.Length)]);
+                aud.PlayOneShot(loseSounds[Random.Range(0, loseSounds.Length)], .4f);
                 break;
         }
     }

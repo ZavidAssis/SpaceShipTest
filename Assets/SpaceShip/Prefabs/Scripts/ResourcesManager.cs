@@ -54,13 +54,13 @@ public class ResourcesManager : MonoBehaviour
     private void Start()
     {
         attUI();
+        shipPrice.text = "Buy Plane " +
+            "$" + shipCosts[currentPlane].ToString();
     }
     private void attUI()
     {
         moneyCounter.text = "$" + playerMoney.ToString();
         pointsCounter.text = "Points: " + PlayerPoints.ToString();
-        shipPrice.text = "Buy Plane " +
-            "$"+shipCosts[currentPlane].ToString();
         livesUI.text ="Lifes: "+ GameManager.Instance.livesCount.ToString();
     }
 
@@ -79,14 +79,17 @@ public class ResourcesManager : MonoBehaviour
             currentPlane++;
             setShip();
             attUI();
+            shipPrice.text = "Buy Plane " +
+            "$" + shipCosts[currentPlane].ToString();
         }
+        else
+            shipPrice.text = "Max";
     }
     public void BuyLife()
     {
         if (playerMoney >= lifePrice)
         {
             playerMoney -= lifePrice;
-            lifePrice = (int)(lifePrice*1.2f);
             GameManager.Instance.livesCount++;
             attUI();
         }
